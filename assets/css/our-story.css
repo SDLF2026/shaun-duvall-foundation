@@ -1,0 +1,77 @@
+/* Our Story page. Tokens only, from site.css. */
+.story .statement { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); }
+
+.open { padding: var(--section) 0 0; }
+.open h1 { font-size: var(--t-h2); font-weight: 400; color: var(--ink-soft); }
+.open .statement { margin-top: var(--s6); max-width: 20ch; font-size: clamp(2.25rem, 1rem + 4.4vw, 5rem); line-height: 1.06; }
+
+/* Shaun and his story share the width; the photo is the size of the words beside it */
+.shaun { padding: var(--tight) 0; }
+.shaun .wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s8); align-items: center; }
+.shaun .photo { margin: 0; aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); }
+.shaun .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 22% 28%; display: block; }
+.shaun h2 { font-size: var(--t-h2); font-weight: 400; color: var(--ink-soft); }
+.shaun .lead { margin-top: var(--s5); font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); max-width: 34ch; text-wrap: pretty; }
+.shaun p + p { margin-top: var(--s6); font-size: var(--t-lede); line-height: 1.55; color: var(--ink-soft); max-width: 44ch; }
+
+.found { background: var(--mist); padding: var(--section) 0; }
+.found .statement { max-width: 20ch; }
+.found .cols { margin-top: var(--s8); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s8); max-width: 66rem; }
+.found .cols p { color: var(--ink-soft); }
+.found .him { margin-top: var(--s8); font: var(--display-weight) clamp(1.5rem, 1.1rem + 1.6vw, 2.5rem)/1.2 var(--font-display); color: var(--gold-ink); }
+
+/* ---------- Moving moment: suffering to hope ---------- */
+.rise { background: var(--deep); color: var(--on-dark); padding: var(--section) var(--gutter); text-align: center; }
+.rise .sun { display: none; }
+.rise .words { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s3) var(--s6); font: var(--display-weight) clamp(2rem, 1rem + 4vw, 4.5rem)/1.1 var(--font-display); }
+.rise .words li + li::before { content: "→"; content: "→" / ""; margin-right: var(--s6); color: var(--gold); }
+.rise .ref { margin-top: var(--s5); color: var(--gold); font-size: var(--t-lede); }
+.rise .lived { margin: var(--s8) auto 0; font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); max-width: 38ch; color: var(--on-dark); }
+/* With JavaScript: one sticky screen; each word takes the screen while her stone rises like the sun */
+.rise.live { height: 280vh; position: relative; padding: 0; }
+.rise.live .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.rise.live .sun { display: block; position: absolute; left: 50%; top: 0; width: 150vmax; height: 128vmax; margin-left: -75vmax; background: var(--gold); border-radius: 55% 45% 52% 48% / 48% 58% 42% 52%; will-change: transform; }
+.rise.live .words { display: block; position: absolute; inset: 0; }
+.rise.live .words li { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); font-size: clamp(3.25rem, 1rem + 10vw, 13rem); letter-spacing: -.03em; opacity: 0; }
+.rise.live .words li + li::before { content: none; }
+.rise.live .ref { position: absolute; left: 0; right: 0; top: calc(50% + clamp(2.5rem, 1rem + 6vw, 8rem)); margin: 0; opacity: 0; }
+.rise.live .lived { position: absolute; left: var(--gutter); right: var(--gutter); top: 9vh; margin: 0 auto; opacity: 0; }
+
+.verse { padding: var(--section) 0 var(--tight); }
+.verse p { max-width: 46rem; font: var(--display-weight) clamp(1.25rem, 1.05rem + .8vw, 1.625rem)/1.55 var(--font-display); }
+.verse p + p { margin-top: var(--s5); color: var(--ink-soft); }
+
+.lead-how { background: var(--mist); padding: var(--section) 0; }
+.lead-how h2, .board h2 { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); }
+.values { list-style: none; margin: var(--s8) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--s7); }
+.values li { border-top: 1px solid var(--rule-light); padding: var(--s5) 0 var(--s7); }
+.values h3 { font: var(--display-weight) clamp(1.375rem, 1.1rem + 1vw, 1.875rem)/1.2 var(--font-display); }
+.values p { margin-top: var(--s3); color: var(--ink-soft); }
+
+.logo-meaning { background: var(--midnight); color: var(--on-dark); padding: var(--section) 0; overflow: hidden; }
+.logo-meaning .wrap { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s9); align-items: center; }
+.logo-meaning img { height: min(70vh, 34rem); width: auto; }
+.logo-meaning .statement { max-width: 18ch; }
+.logo-meaning p + p { margin-top: var(--s6); font-size: var(--t-lede); line-height: 1.55; color: var(--on-dark-soft); max-width: 44ch; }
+
+.board { padding: var(--section) 0; }
+.board .intro { margin-top: var(--s5); color: var(--ink-soft); max-width: 60ch; }
+.people { list-style: none; margin: var(--s8) 0 0; padding: 0; }
+.people li { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: var(--s7); padding: var(--s8) 0; border-top: 1px solid var(--rule-light); }
+.people li.no-photo { grid-template-columns: minmax(0, 1fr); }
+.people li.no-photo > div { margin-left: calc(12rem + var(--s7)); }
+.people img { width: 12rem; height: 12rem; object-fit: cover; border-radius: var(--radius); }
+.people h3 { font: var(--display-weight) clamp(1.5rem, 1.15rem + 1.3vw, 2.25rem)/1.15 var(--font-display); }
+.people .role { margin-top: var(--s2); color: var(--gold-ink); font-weight: 500; }
+.people p:not(.role) { margin-top: var(--s4); color: var(--ink-soft); max-width: 62ch; }
+
+@media (max-width: 900px) {
+  .shaun .wrap, .found .cols, .logo-meaning .wrap { grid-template-columns: 1fr; }
+  .shaun .wrap { gap: var(--s7); }
+  .shaun .photo { max-width: 32rem; }
+  .values { grid-template-columns: 1fr; }
+  .logo-meaning img { height: 18rem; }
+  .people li { grid-template-columns: 1fr; gap: var(--s5); }
+  .people li.no-photo > div { margin-left: 0; }
+  .people img { width: 9rem; height: 9rem; }
+}

@@ -1,0 +1,116 @@
+/* Programs page. Tokens only, from site.css. */
+
+/* ---------- Moving moment 1: two paths become one ---------- */
+.tp { background: var(--deep); }
+.tp .half { background: var(--midnight); color: var(--on-dark); padding: var(--s9) var(--gutter); }
+.tp .right { background: var(--gold); color: var(--midnight); }
+.tp .half h2 { font: var(--display-weight) clamp(2.5rem, 1rem + 5.4vw, 6.5rem)/1.02 var(--font-display); letter-spacing: -.02em; max-width: 9ch; }
+.tp .half p { margin-top: var(--s5); font-size: var(--t-lede); line-height: 1.5; max-width: 26ch; }
+.tp .left p { color: var(--on-dark-soft); }
+.tp .one { background: var(--paper); color: var(--ink); text-align: center; padding: var(--s9) var(--gutter); }
+.tp .one h2 { font: var(--display-weight) clamp(3rem, 1rem + 8vw, 10rem)/1 var(--font-display); letter-spacing: -.025em; }
+.tp .one .two { margin-top: var(--s5); font: var(--display-weight) clamp(2rem, 1rem + 3.6vw, 4.5rem)/1.05 var(--font-display); color: var(--gold-ink); }
+.tp .one .heart { margin: var(--s7) auto 0; font-size: var(--t-lede); color: var(--ink-soft); max-width: 34ch; }
+.tp .seam { display: none; }
+/* With JavaScript: one sticky screen that the scroll plays through */
+.tp.live { height: 360vh; position: relative; }
+.tp.live .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.tp.live .half, .tp.live .one { position: absolute; inset: 0; display: flex; align-items: center; padding: 0; }
+.tp.live .half .in { width: 50%; padding: 0 var(--gutter); }
+.tp.live .right { justify-content: flex-end; }
+.tp.live .one { justify-content: center; flex-direction: column; }
+.tp.live .seam { display: block; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: var(--gold); opacity: 0; }
+@media (max-width: 760px) {
+  .tp.live .half { align-items: flex-start; }
+  .tp.live .half .in { width: 100%; }
+  .tp.live .left .in { padding-top: 5rem; }
+  .tp.live .right { align-items: flex-end; justify-content: flex-start; }
+  .tp.live .right .in { padding-bottom: 4rem; }
+  .tp .half h2 { font-size: clamp(2.25rem, 1rem + 6vw, 3.25rem); }
+  .tp.live .seam { top: 50%; bottom: auto; left: 0; right: 0; width: auto; height: 2px; margin: -1px 0 0; }
+}
+
+/* ---------- The person is the investment ---------- */
+.invest { padding: var(--section) 0; }
+.invest .statement { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); max-width: 24ch; }
+.invest .cols { margin-top: var(--s8); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s8); max-width: 62rem; }
+.invest .cols p { color: var(--ink-soft); }
+/* beside "…can multiply for a lifetime.": a stone dropped in still water, its rings spreading once (wide screens, where there is room) */
+.invest .ripple { display: none; }
+.ripple svg { display: block; width: 100%; height: auto; overflow: visible; }
+.ripple .stone { fill: var(--gold); }
+.ripple .ring { fill: none; stroke: var(--gold-ink); stroke-width: 1; opacity: var(--o); transform-box: fill-box; transform-origin: center; }
+.ripple.pre .stone { opacity: 0; transform: translateY(-60px); transition: transform .6s var(--ease-out), opacity .2s var(--ease-out); }
+.ripple.pre .ring { opacity: 0; transform: scale(.2); transition: transform 1.6s var(--ease-out) calc(.5s + var(--i) * .24s), opacity 1s var(--ease-out) calc(.5s + var(--i) * .24s); }
+.ripple.pre.in .stone { opacity: 1; transform: none; }
+.ripple.pre.in .ring { opacity: var(--o); transform: none; }
+@media (min-width: 901px) {
+  .invest .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--s8); align-items: center; }
+  .invest .wrap > .statement { grid-column: 1; }
+  .invest .wrap > .cols { grid-column: 1 / -1; }
+  .invest .ripple { display: block; grid-column: 2; grid-row: 1; justify-self: center; width: 100%; max-width: 22rem; }
+}
+
+/* ---------- The two programs ---------- */
+.prog { background: var(--mist); padding: var(--s9) 0; }
+.prog + .prog { border-top: 1px solid var(--rule-light); }
+.prog .wrap, .mentors .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--s6) var(--s8); align-items: start; }
+.prog .name h2, .mentors .name h2 { font: var(--display-weight) clamp(2rem, 1.2rem + 2.6vw, 3.5rem)/1.08 var(--font-display); letter-spacing: var(--display-track); }
+.prog .deadline { margin-top: var(--s5); color: var(--gold-ink); font-weight: 500; }
+.prog h3, .mentors h3 { font-weight: 500; font-size: var(--t-body); }
+.prog ul, .mentors ul, .hope ul { margin: var(--s4) 0 0; padding: 0; list-style: none; }
+.prog li, .mentors li, .hope li { position: relative; padding: var(--s3) 0 var(--s3) 1.6rem; border-top: 1px solid var(--rule-light); color: var(--ink-soft); }
+.prog li::before, .mentors li::before, .hope li::before { content: ""; position: absolute; left: 0; top: 1.05rem; width: .62rem; height: .52rem; background: var(--gold); border-radius: 55% 45% 52% 48% / 48% 58% 42% 52%; }
+.prog .actions, .mentors .actions { justify-content: flex-start; margin-top: var(--s6); gap: var(--s3) var(--s4); }
+.prog .note { margin-top: var(--s3); font-size: var(--t-small); line-height: 1.6; color: var(--ink-soft); max-width: 52ch; }
+.prog .actions + .note { margin-top: var(--s5); }
+
+/* ---------- Who we are looking for ---------- */
+.look { padding: var(--section) 0; text-align: center; }
+.look .kicker { font-size: var(--t-h2); color: var(--ink-soft); font-weight: 400; }
+.look .statement { margin: var(--s6) auto 0; font: var(--display-weight) var(--t-statement)/1.16 var(--font-display); letter-spacing: var(--display-track); max-width: 22ch; }
+.look .body { margin: var(--s7) auto 0; color: var(--ink-soft); max-width: 46ch; }
+
+/* ---------- Moving moment 2: the year, screen by screen ---------- */
+.yr { background: var(--midnight); color: var(--on-dark); padding: var(--section) 0; }
+.yr .title { padding: 0 var(--gutter); font: var(--display-weight) var(--t-h2)/1.2 var(--font-display); }
+.yr .track { list-style: none; margin: 0; padding: 0 var(--gutter); }
+.yr .panel { position: relative; padding: var(--s8) 0; border-bottom: 1px solid var(--rule-dark); }
+.yr .big { display: none; }
+.yr .when { color: var(--gold); font-size: var(--t-lede); }
+.yr .panel h3 { margin-top: var(--s4); font: var(--display-weight) clamp(2.5rem, 1rem + 5vw, 6rem)/1.02 var(--font-display); letter-spacing: -.02em; }
+.yr .line { margin-top: var(--s5); font-size: var(--t-lede); line-height: 1.55; color: var(--on-dark-soft); max-width: 34ch; }
+.yr .rail, .yr .stone { display: none; }
+.yr.live { height: 600vh; position: relative; padding: 0; }
+.yr.live .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.yr.live .title { position: absolute; top: var(--s6); left: 0; z-index: 2; }
+.yr.live .track { position: absolute; top: 0; left: 0; height: 100%; display: flex; padding: 0; will-change: transform; }
+.yr.live .panel { width: 100vw; height: 100%; flex: none; display: flex; align-items: center; padding: 0 var(--gutter); border: 0; }
+.yr.live .big { display: block; position: absolute; left: var(--gutter); bottom: 12vh; font: var(--display-weight) clamp(6rem, 2rem + 18vw, 22rem)/.8 var(--font-display); letter-spacing: -.04em; color: var(--gold-wash); white-space: nowrap; pointer-events: none; }
+.yr.live .copy { position: relative; max-width: 40rem; }
+.yr.live .rail { display: block; position: absolute; left: var(--gutter); right: var(--gutter); bottom: 6vh; height: 2px; background: var(--rule-dark); }
+.yr .rail .tick { position: absolute; top: -4px; width: 2px; height: 10px; background: var(--rule-dark); }
+.yr.live .stone { display: block; position: absolute; bottom: calc(6vh - .5rem); left: var(--gutter); width: 1.6rem; height: 1.35rem; margin-left: -.8rem; background: var(--gold); border-radius: 55% 45% 52% 48% / 48% 58% 42% 52%; }
+.yr .kid { position: absolute; width: .7rem; height: .6rem; background: var(--gold); border-radius: 50%; opacity: 0; }
+
+/* ---------- Mentors, hopes, the model ---------- */
+.mentors { padding: var(--section) 0; }
+.mentors .name p { margin-top: var(--s5); color: var(--ink-soft); max-width: 34ch; }
+.hope { background: var(--mist); padding: var(--section) 0; }
+.hope h2, .mm h2 { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); }
+.hope .lead { margin-top: var(--s4); color: var(--ink-soft); }
+.hope ul { columns: 2; column-gap: var(--s8); margin-top: var(--s7); }
+.hope li { break-inside: avoid; }
+.mm { padding: var(--section) 0; }
+.mm ol { list-style: none; margin: var(--s8) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--s5); }
+.mm li { border-top: 1px solid var(--rule-dark); padding-top: var(--s4); }
+.mm b { display: block; font: var(--display-weight) clamp(1.375rem, 1.1rem + 1vw, 1.875rem)/1.2 var(--font-display); }
+.mm span { display: block; margin-top: var(--s2); font-size: var(--t-small); line-height: 1.5; color: var(--on-dark-soft); }
+.mm .close { margin-top: var(--s8); font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); max-width: 30ch; }
+
+@media (max-width: 900px) {
+  .prog .wrap, .mentors .wrap, .invest .cols { grid-template-columns: 1fr; }
+  .hope ul { columns: 1; }
+  .mm ol { grid-template-columns: 1fr; gap: 0; }
+  .mm li { padding: var(--s4) 0; }
+}

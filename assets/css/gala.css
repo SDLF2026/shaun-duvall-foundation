@@ -1,0 +1,102 @@
+/* Gala page. Tokens only, from site.css. */
+
+/* ---------- Moving moment: the room fills, table by table ---------- */
+.room { background: var(--deep); color: var(--on-dark); padding: var(--section) var(--gutter) var(--tight); text-align: center; }
+.room .tables { display: none; }
+.room .sub { color: var(--on-dark-soft); font-size: var(--t-small); font-weight: 500; letter-spacing: .02em; }
+.room h1 { margin-top: var(--s4); font: var(--display-weight) clamp(3rem, 1.4rem + 6.4vw, 7rem)/1 var(--font-display); letter-spacing: var(--display-track); }
+.room .tag { margin-top: var(--s5); font: var(--display-weight) var(--t-lede)/1.4 var(--font-display); color: var(--gold); }
+.room.live { height: 320vh; position: relative; padding: 0; }
+.room.live .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.room.live .tables { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+.room.live .title { position: absolute; left: var(--gutter); right: var(--gutter); top: clamp(2.5rem, 8vh, 5.5rem); z-index: 2; }
+.room.live .tag .w { display: inline-block; will-change: transform, opacity; }
+
+/* ---------- The invitation (the home page's Gala card, without its name) ---------- */
+.gala.invite { padding-top: var(--s7); }
+.gala .sale { margin-top: var(--s5); color: var(--on-dark-soft); font-size: var(--t-small); }
+.gala .price { margin-top: var(--s2); color: var(--on-dark); font-weight: 500; }
+
+/* ---------- Page ---------- */
+.gala-page h2 { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); }
+.gala-page .intro { margin-top: var(--s6); max-width: 46rem; color: var(--ink-soft); }
+.gala-page .actions { justify-content: flex-start; }
+
+.why-gala { padding: var(--section) 0; }
+.why-gala .lead { font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); max-width: 42ch; }
+.why-gala .statement { margin-top: var(--s7); font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); color: var(--gold-ink); max-width: 22ch; }
+/* beside "multiply it": one stone becomes a living network as you read (wide screens, where there is room) */
+.why-gala .net { display: none; }
+.why-gala .net canvas { display: block; width: 100%; height: 100%; }
+@media (min-width: 901px) {
+  .why-gala .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--s8); }
+  .why-gala .wrap > :not(.net) { grid-column: 1; }
+  .why-gala .wrap > .cols { grid-column: 1 / -1; }
+  .why-gala .net { display: block; grid-column: 2; grid-row: 1 / span 2; align-self: center; justify-self: center; width: 100%; max-width: 30rem; aspect-ratio: 1; }
+}
+.why-gala .cols { margin-top: var(--s8); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s6) var(--s8); max-width: 68rem; }
+.why-gala .cols > div { border-top: 1px solid var(--rule-light); padding-top: var(--s5); }
+.why-gala .cols h2 { font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem); line-height: 1.25; }
+.why-gala .cols p { margin-top: var(--s3); color: var(--ink-soft); }
+
+/* Sponsorship levels: the home page's ways-in rows, with the amount in place of the date */
+.levels { padding: var(--section) 0; }
+.levels .program, .goods .program { margin: var(--s8) 0 0; max-width: 60rem; }
+.tiers .when.amt { font: var(--display-weight) clamp(1.375rem, 1.1rem + 1vw, 1.875rem)/1.25 var(--font-display); }
+.perks { list-style: none; margin: 0; padding: 0; columns: 2 18rem; column-gap: var(--s8); }
+.perks li { break-inside: avoid; position: relative; padding: var(--s2) 0 var(--s2) 1.1rem; color: var(--on-dark-soft); }
+.perks li::before { content: ""; position: absolute; left: 0; top: 1.05em; width: .35rem; height: .35rem; border-radius: 50%; background: var(--gold); }
+.levels .all { margin-top: var(--s6); color: var(--on-dark-soft); max-width: 46rem; }
+.levels .actions { margin-top: var(--s6); }
+
+/* the same rows on a light field */
+.tiers.light .door { border-color: var(--rule-light); }
+.tiers.light .row .leader { border-bottom-color: var(--rule-light); }
+.tiers.light .row .when { color: var(--gold-ink); }
+.tiers.light .plus::before, .tiers.light .plus::after { background: var(--gold-ink); }
+.tiers.light .perks li { color: var(--ink-soft); }
+.tiers.light .perks li::before { background: var(--gold-ink); }
+@media (hover: hover) and (pointer: fine) { .tiers.light .row:hover { background: var(--hover-light); } }
+
+.goods { padding: var(--section) 0; }
+.goods .cols { margin-top: var(--s8); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s6) var(--s7); }
+.goods .cols h3 { font: 500 var(--t-body)/1.4 var(--font-ui); }
+.goods .cols p { margin-top: var(--s3); color: var(--ink-soft); }
+.examples { list-style: none; margin: var(--s3) 0 0; padding: 0; color: var(--ink-soft); }
+.examples li + li { margin-top: var(--s2); }
+.goods .actions { margin-top: var(--s8); gap: var(--s4) var(--s6); }
+.goods .deadline { color: var(--gold-ink); font-weight: 500; }
+
+/* Underwriting: name … amount, with her SPONSORED stamp across a row once it sells */
+.under { background: var(--mist); padding: var(--section) 0; }
+.ledger { list-style: none; margin: var(--s8) 0 0; padding: 0; max-width: 60rem; border-bottom: 1px solid var(--rule-light); }
+.ledger li { position: relative; display: flex; align-items: baseline; gap: var(--s4); padding: var(--s4) 0; border-top: 1px solid var(--rule-light); }
+.ledger .name, .ledger .amt { font: var(--display-weight) clamp(1.25rem, 1.05rem + .6vw, 1.5rem)/1.3 var(--font-display); }
+.ledger .leader { flex: 1; min-width: 2rem; border-bottom: 1px dotted var(--rule-light); transform: translateY(-.35em); }
+.ledger .amt { color: var(--gold-ink); font-variant-numeric: tabular-nums; }
+.ledger .sold .name, .ledger .sold .amt { color: var(--ink-soft); }
+.stamp {
+  --tx: translate(-50%, -50%);
+  position: absolute; left: 60%; top: 50%; transform: var(--tx) rotate(-7deg) scale(var(--sc, 1));
+  padding: .25rem .75rem; border: 2px solid var(--gold-ink); border-radius: var(--radius); background: var(--mist);
+  color: var(--gold-ink); font: 500 var(--t-small)/1.2 var(--font-ui); letter-spacing: .14em; text-transform: uppercase;
+}
+.ledger.pre .stamp { --sc: 1.6; opacity: 0; transition: transform .35s var(--ease-out) .35s, opacity .2s var(--ease-out) .35s; }
+.ledger.pre.in .stamp { --sc: 1; opacity: 1; }
+.under h3 { margin-top: var(--s8); font: var(--display-weight) clamp(1.375rem, 1.1rem + 1vw, 1.75rem)/1.2 var(--font-display); }
+.under .how { margin-top: var(--s3); max-width: 46rem; color: var(--ink-soft); }
+
+.gala-close { padding: var(--section) 0; text-align: center; }
+.gala-close .contact { margin: 0 auto; max-width: 34ch; font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); }
+.gala-close .actions { justify-content: center; margin-top: var(--s7); }
+.gala-close .tax { margin: var(--s8) auto 0; max-width: 46rem; font-size: var(--t-small); line-height: 1.6; color: var(--ink-soft); }
+
+@media (max-width: 900px) {
+  .why-gala .cols, .goods .cols { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .ledger li { flex-wrap: wrap; gap: var(--s2) var(--s3); }
+  .ledger .leader { display: none; }
+  .ledger .amt { margin-left: auto; }
+  .stamp { --tx: none; position: static; order: 3; }
+}

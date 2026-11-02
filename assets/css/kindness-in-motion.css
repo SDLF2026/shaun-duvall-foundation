@@ -1,0 +1,83 @@
+/* Kindness in Motion page. Tokens only, from site.css. */
+
+/* ---------- Moving moment: the town lights up until one person is seen, then people step in close ---------- */
+.gather { background: var(--deep); color: var(--on-dark); padding: var(--section) var(--gutter); }
+.gather .field { display: none; }
+.gather .title h1 { font: var(--display-weight) var(--t-h2)/1.2 var(--font-display); }
+.gather .title p { margin-top: var(--s2); color: var(--on-dark-soft); font-size: var(--t-small); }
+.gather .say { margin-top: var(--s8); font: var(--display-weight) clamp(2rem, 1rem + 3.6vw, 4.25rem)/1.12 var(--font-display); letter-spacing: var(--display-track); max-width: 22ch; }
+.gather .say .b { color: var(--gold); }
+.gather.live { height: 360vh; position: relative; padding: 0; }
+.gather.live .stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.gather.live .field { display: block; position: absolute; inset: 0; width: 100%; height: 100%; }
+.gather.live .title { position: absolute; top: var(--s6); left: var(--gutter); z-index: 2; }
+.gather.live .say { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 9vh; margin: 0 auto; text-align: center; max-width: 24ch; z-index: 2; }
+.gather.live .say > span { display: block; }
+.gather.live .say .w { display: inline-block; will-change: transform, opacity; }
+
+/* ---------- Page ---------- */
+.kim-page h2 { font: var(--display-weight) var(--t-statement)/1.14 var(--font-display); letter-spacing: var(--display-track); }
+.kim-page .lead { font: var(--display-weight) clamp(1.375rem, 1.1rem + 1.1vw, 2rem)/1.4 var(--font-display); }
+.kim-page .actions { justify-content: flex-start; margin-top: var(--s6); gap: var(--s3) var(--s4); }
+
+.kim-intro { padding: var(--section) 0; }
+.kim-intro .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--s8); align-items: end; }
+.kim-intro .text p + p { margin-top: var(--s5); color: var(--ink-soft); max-width: 52ch; }
+.kim-intro .window { color: var(--gold-ink); font-weight: 500; }
+/* Shaun's launch video is from 2024: the date sits right beside the link so no one reads it as current (Cascea, 2026-10-29) */
+.kim-intro .past { margin-top: var(--s6); }
+.kim-intro .past .when { display: block; margin-top: var(--s2); color: var(--ink-soft); font-size: var(--t-small); }
+/* after Dec 11 the script swaps the window line for her thank-you */
+.kim-intro .closed { max-width: 40ch; color: var(--ink-soft); }
+
+.how { background: var(--mist); padding: var(--section) 0; }
+.steps { list-style: none; margin: var(--s8) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 var(--s6); }
+.steps li { border-top: 1px solid var(--rule-light); padding-top: var(--s5); }
+.steps .n { display: block; font: var(--display-weight) clamp(3rem, 1.5rem + 4vw, 5.5rem)/1 var(--font-display); color: var(--gold-ink); }
+.steps h3 { margin-top: var(--s4); font: var(--display-weight) clamp(1.375rem, 1.1rem + 1vw, 1.75rem)/1.2 var(--font-display); }
+.steps p { margin-top: var(--s3); color: var(--ink-soft); }
+
+.who, .privacy { padding: var(--section) 0; }
+.who .cols, .privacy .cols { margin-top: var(--s7); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s5) var(--s8); max-width: 68rem; align-items: start; }
+.who .cols p:not(.lead), .privacy .cols p { color: var(--ink-soft); }
+.privacy { background: var(--mist); }
+
+.give { padding: var(--section) 0; }
+.give .lead { margin-top: var(--s6); max-width: 34ch; }
+
+.kim-close { padding: var(--section) 0; text-align: center; }
+.kim-close .statement { margin: 0 auto; font: var(--display-weight) var(--t-statement)/1.16 var(--font-display); letter-spacing: var(--display-track); max-width: 24ch; }
+.kim-close .actions { justify-content: center; }
+
+/* ---------- Small touches. Each plays once as it comes into view; the finished state is the default ---------- */
+/* the nomination window, in days */
+.kim-count { justify-content: flex-start; margin: 0 0 var(--s5); }
+.kim-count .num { color: var(--gold-ink); }
+.kim-count .unit { color: var(--ink-soft); }
+
+/* How it works: a gold rule draws through the steps in order */
+.steps li { position: relative; }
+.steps li::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 1px; background: var(--gold-ink); transform-origin: left center; }
+.steps li:nth-child(2) { --i: 1; } .steps li:nth-child(3) { --i: 2; } .steps li:nth-child(4) { --i: 3; }
+.steps.pre li::before { transform: scaleX(0); transition: transform .5s var(--ease-out) calc(var(--i, 0) * .32s); }
+.steps.pre .n { opacity: 0; transform: translateY(.25em); transition: opacity .45s var(--ease-out) calc(var(--i, 0) * .32s + .12s), transform .45s var(--ease-out) calc(var(--i, 0) * .32s + .12s); }
+.steps.pre.in li::before, .steps.pre.in .n { opacity: 1; transform: none; }
+
+/* Give: gifts drop into one pile (wide screens, where the band has room for it) */
+.give .pool { display: none; }
+.pool svg { display: block; width: 100%; max-width: 28rem; height: auto; margin-left: auto; overflow: visible; }
+.pool .ground { stroke: var(--on-dark-soft); stroke-opacity: .3; stroke-width: 1; }
+.pool path { fill: var(--gold); transform-box: view-box; transform-origin: 0 0; transform: translate(var(--x), var(--y)) rotate(var(--r)); }
+.pool.pre path { opacity: 0; transform: translate(var(--x), calc(var(--y) - 9rem)) rotate(calc(var(--r) + .7rad)); transition: transform .7s var(--ease-out) calc(var(--i) * 70ms), opacity .25s var(--ease-out) calc(var(--i) * 70ms); }
+.pool.pre.in path { opacity: 1; transform: translate(var(--x), var(--y)) rotate(var(--r)); }
+@media (min-width: 901px) {
+  .give .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: var(--s8); }
+  .give .wrap > :not(.pool) { grid-column: 1; }
+  .give .pool { display: block; grid-column: 2; grid-row: 1 / span 3; align-self: end; }
+}
+
+@media (max-width: 900px) {
+  .kim-intro .wrap, .who .cols, .privacy .cols { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; gap: var(--s6) var(--s5); }
+}
+@media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
